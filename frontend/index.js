@@ -4,28 +4,30 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // 👇 WORK ONLY BELOW THIS LINE 👇
 
   // 👇 ==================== TASK 1 START ==================== 👇
-
+  
   // 🧠 Use Axios to GET learners and mentors.
   // ❗ Use the variables `mentors` and `learners` to store the data.
   // ❗ Use the await keyword when using axios.
-  
-
-  let learners = [];
-  await axios.get('http://localhost:3003/api/learners') 
-      .then(response=> {
-        console.log(response.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    let mentors = [];
-    await axios.get('http://localhost:3003/api/mentors')
-        .then(response=> {
-          console.log(response.data)
+    
+    let learners = [];
+    await axios.get('http://localhost:3003/api/learners') 
+        .then(learners => {
+          console.log(learners.data);
+          return learners.data;
         })
         .catch(error => {
           console.log(error)
-        }) 
+        })
+      
+    let mentors = [];
+    await axios.get('http://localhost:3003/api/mentors')
+        .then(mentors => {
+          console.log(mentors.data)
+        })
+        .catch(error => {
+          console.log(error)
+        });
+
     
   // 👆 ==================== TASK 1 END ====================== 👆
 
@@ -34,7 +36,8 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // 🧠 Combine learners and mentors.
   // ❗ At this point the learner objects only have the mentors' IDs.
   // ❗ Fix the `learners` array so that each learner ends up with this exact structure:
-  // {
+
+  
   //   id: 6,
   //   fullName: "Bob Johnson",
   //   email: "bob.johnson@example.com",
@@ -44,7 +47,6 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   //   ]`
   // }
     
-
 
 
   // 👆 ==================== TASK 2 END ====================== 👆
