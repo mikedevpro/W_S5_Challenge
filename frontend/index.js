@@ -9,24 +9,13 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // ❗ Use the variables `mentors` and `learners` to store the data.
   // ❗ Use the await keyword when using axios.
     
-    let learners = [];
+    let learners = 
     await axios.get('http://localhost:3003/api/learners') 
-        .then(learners => {
-          console.log(learners.data);
-          return learners.data;
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    let learnersRes = learners.data
       
-    let mentors = [];
+    let mentors = 
     await axios.get('http://localhost:3003/api/mentors')
-        .then(mentors => {
-          console.log(mentors.data)
-        })
-        .catch(error => {
-          console.log(error)
-        });
+    let mentorsRes = mentors.data   
 
     
   // 👆 ==================== TASK 1 END ====================== 👆
@@ -36,6 +25,18 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // 🧠 Combine learners and mentors.
   // ❗ At this point the learner objects only have the mentors' IDs.
   // ❗ Fix the `learners` array so that each learner ends up with this exact structure:
+
+    let formattedData = []
+    learnersRes.forEach(learner => {
+      const result = {
+        ...learner, 
+        mentors: learner.mentors.map(mentorId => {
+          let mentor = mentorsRes.find(mentorObj => mentorObj.id == mentorId)
+          return mentor.firstName + " " + mentor.lastName
+        })
+      }
+      formattedData.push(result)
+    })
 
   
   //   id: 6,
@@ -58,7 +59,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
   // 👇 ==================== TASK 3 START ==================== 👇
 
-  for (let learner of learners) { // looping over each learner object
+  formattedData.forEach(learner =>  { // looping over each learner object
 
     // 🧠 Flesh out the elements that describe each learner
     // ❗ Give the elements below their (initial) classes, textContent and proper nesting.
@@ -118,7 +119,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
       }
     })
   }
-
+)
   const footer = document.querySelector('footer')
   const currentYear = new Date().getFullYear()
   footer.textContent = `© BLOOM INSTITUTE OF TECHNOLOGY ${currentYear}`
