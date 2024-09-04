@@ -58,9 +58,10 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
 
   // 👇 ==================== TASK 3 START ==================== 👇
-
+    //console.log(formattedData)
   formattedData.forEach(learner =>  { // looping over each learner object
   
+    
     // 🧠 Flesh out the elements that describe each learner
     // ❗ Give the elements below their (initial) classes, textContent and proper nesting.
     // ❗ Do not change the variable names, as the code that follows depends on those names.
@@ -71,33 +72,32 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     
     const card = document.createElement('div')
     card.classList.add('card')
+
     const heading = document.createElement('h3')
     card.appendChild(heading)
+    
     const email = document.createElement('div')
     card.appendChild(email)
+    email.innerText = learner.email
+
     const mentorsHeading = document.createElement('h4')
     mentorsHeading.classList.add('closed')
     card.appendChild(mentorsHeading)
     mentorsHeading.textContent = 'Mentors'
+
     const mentorsList = document.createElement('ul')
-
+    card.appendChild(mentorsList)
+    // console.log('currentLearner', learner)
+    console.log(learner.mentors)
+    // learner.forEach((mentor) => {
+    //   mentor.innerText = learner.mentor;
+    //   const mentors = document.createElement('li')
+    //   document.querySelector('ul').appendChild(mentors)
+    // })
     
     
-    // document.getElementById('div')
-    // textContent 
-    // mentorsHeading.classList.add('closed')
-
-    // card.textContent = ""
-    // heading.textContent = ""
-    // email.textContent = ""
-    // mentorsHeading.textContent = ""
-    // mentorsList.textContent = ""
     
-    // document.body.append(card);
-    // document.body.append(heading);
-    // document.body.append(email);
-    // document.body.append(mentorsHeading);
-    // document.body.append(mentorsList);
+    
     // 👆 ==================== TASK 3 END ====================== 👆
 
     // 👆 WORK ONLY ABOVE THIS LINE 👆
