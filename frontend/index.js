@@ -81,19 +81,40 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     email.innerText = learner.email
 
     const mentorsHeading = document.createElement('h4')
-    mentorsHeading.classList.add('closed')
+    mentorsHeading.classList.add('open', 'closed')
     card.appendChild(mentorsHeading)
     mentorsHeading.textContent = 'Mentors'
 
     const mentorsList = document.createElement('ul')
     card.appendChild(mentorsList)
-    // console.log('currentLearner', learner)
-    console.log(learner.mentors)
-    // learner.forEach((mentor) => {
-    //   mentor.innerText = learner.mentor;
-    //   const mentors = document.createElement('li')
-    //   document.querySelector('ul').appendChild(mentors)
+
+    for (let i = 0; i < learner.mentors.length; i++) {
+      let li = document.createElement('li')
+      li.textContent = `${learner.mentors[i]}`
+      mentorsList.appendChild(li)
+    }
+     //let li = document.createElement('li')
+     
+      
+
+    // const mentor = document.createElement('li')
+    
+    
+   
+
+    // for (let mentors in learner) {
+    //   mentors += learner[]
+    // }
+    
+    //   learner.forEach(mentors => {
+    //   let li = document.createElement('li')
+    
+    //   document.querySelector('ul').appendChild(li)
     // })
+    
+    // console.log('currentLearner', learner)
+    // console.log(learner.mentors[0])
+    
     
     
     
