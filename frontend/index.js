@@ -84,6 +84,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
     const mentorsHeading = document.createElement('h4')
     card.appendChild(mentorsHeading)
+    mentorsHeading.classList.add('closed')
     mentorsHeading.textContent = 'Mentors'
 
     const mentorsList = document.createElement('ul')
