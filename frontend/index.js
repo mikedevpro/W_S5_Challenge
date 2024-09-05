@@ -72,6 +72,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     
     const card = document.createElement('div')
     card.classList.add('card')
+    
 
     const heading = document.createElement('h3')
     card.appendChild(heading)
@@ -93,30 +94,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
       li.textContent = `${learner.mentors[i]}`
       mentorsList.appendChild(li)
     }
-     //let li = document.createElement('li')
      
-      
-
-    // const mentor = document.createElement('li')
-    
-    
-   
-
-    // for (let mentors in learner) {
-    //   mentors += learner[]
-    // }
-    
-    //   learner.forEach(mentors => {
-    //   let li = document.createElement('li')
-    
-    //   document.querySelector('ul').appendChild(li)
-    // })
-    
-    // console.log('currentLearner', learner)
-    // console.log(learner.mentors[0])
-    
-    
-    
     
     
     // 👆 ==================== TASK 3 END ====================== 👆
