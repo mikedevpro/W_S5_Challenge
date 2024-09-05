@@ -9,6 +9,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   // ❗ Use the variables `mentors` and `learners` to store the data.
   // ❗ Use the await keyword when using axios.
     
+
     let learners = 
     await axios.get('http://localhost:3003/api/learners') 
     let learnersRes = learners.data
@@ -73,16 +74,15 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     const card = document.createElement('div')
     card.classList.add('card')
     
-
     const heading = document.createElement('h3')
     card.appendChild(heading)
+    heading.textContent = learner.fullName
     
     const email = document.createElement('div')
     card.appendChild(email)
     email.innerText = learner.email
 
     const mentorsHeading = document.createElement('h4')
-    mentorsHeading.classList.add('open', 'closed')
     card.appendChild(mentorsHeading)
     mentorsHeading.textContent = 'Mentors'
 
@@ -91,7 +91,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
 
     for (let i = 0; i < learner.mentors.length; i++) {
       let li = document.createElement('li')
-      li.textContent = `${learner.mentors[i]}`
+      li.textContent = learner.mentors[i]
       mentorsList.appendChild(li)
     }
      
